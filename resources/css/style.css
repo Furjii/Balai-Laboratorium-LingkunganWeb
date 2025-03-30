@@ -1,0 +1,116 @@
+:root {
+    --bs-primary: #3392f0;
+    --bs-danger: #900c3f;
+    --bs-body-bg: #f8f9fa;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.logo-mobile {
+    width: 120px;
+    height: auto;
+}
+
+.input-custom {
+    height: 60px;
+    background-color: #e0e0e0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #6c757d !important;
+}
+
+.input-custom::placeholder {
+    color: #a0a0a0 !important;
+}
+
+.input-custom:focus {
+    background-color: #d6d6d6 !important;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(47, 133, 219) !important;
+}
+
+@media (max-width: 768px) {
+    .left-panel {
+        display: none;
+    }
+
+    .right-panel {
+        width: 90% !important;
+    }
+    .card-login {
+        max-width: 400px;
+        width: 100%;
+        border-radius: 20px;
+        background-color: #ffffff;
+    }
+
+    .desktop-view {
+        display: none;
+    }
+}
+
+.left-panel {
+    background-color: var(--bs-primary) !important;
+    border-top-right-radius: 10px 150px;
+    border-bottom-right-radius: 90% 90%;
+}
+
+/* Sidebar tetap di kiri (fixed) */
+.sidebar-fixed {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+}
+
+.nav-pills .nav-link.active {
+    background-color: transparent !important;
+    color: #dc3545 !important;
+}
+
+.nav-link.active {
+    color: #dc3545 !important;
+    background-color: transparent;
+}
+
+.nav-link.active i {
+    color: #dc3545 !important;
+}
+
+@media (max-width: 768px) {
+    .sidebar-fixed {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Optional Styling for Dashboard Cards */
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .card .btn {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+}
