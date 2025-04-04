@@ -50,7 +50,10 @@
         <div class="sidebar">
             <div class="text-center text-white ps-3 d-flex justify-content-start align-items-center" style="height: 90px; background-color: #8B5E5E;">
                 <i class="fa-regular fa-user-circle fa-2x"></i>
-                <span class="mb-0 ms-1 fs-5">User</span>
+                <div class="d-flex flex-column ms-2 text-start">
+                    <span class="mb-0 fs-5 font-weight-bold">{{ Auth::user()->name }}</span> <!-- User's name, bold and left-aligned -->
+                    <span class="fs-6 text-muted">{{ Auth::user()->role }}</span> <!-- User's role (Admin) -->
+                </div>
             </div>
 
             <p class="px-3 mt-4 fw-bold text-uppercase small text-muted">Menu Navigasi</p>
@@ -68,7 +71,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#submenu" role="button" aria-expanded="false" aria-controls="submenu">
-                        <span><i class="fa fa-file-alt me-2"></i> Formulir Tambahan</span>
+                        <span><i class="fa fa-file-alt me-2"></i> Formulir Uji</span>
                         <i class="fa fa-chevron-down"></i>
                     </a>
                     <div class="collapse" id="submenu">

@@ -50,7 +50,10 @@
         <div class="sidebar">
             <div class="text-center text-white ps-3 d-flex justify-content-start align-items-center" style="height: 90px; background-color: #8B5E5E;">
                 <i class="fa-regular fa-user-circle fa-2x"></i>
-                <span class="mb-0 ms-1 fs-5">Admin</span>
+                <div class="d-flex flex-column ms-2 text-start">
+                    <span class="mb-0 fs-5 font-weight-bold">{{ Auth::user()->name }}</span> <!-- User's name, bold and left-aligned -->
+                    <span class="fs-6 text-muted">{{ Auth::user()->role }}</span> <!-- User's role (Admin) -->
+                </div>
             </div>
 
             <p class="px-3 mt-4 fw-bold text-uppercase small text-muted">Menu Navigasi</p>
@@ -69,8 +72,8 @@
                     </a>
                     <div class="collapse" id="submenu">
                         <ul class="nav flex-column ms-4">
-                            {{-- <li><a href="{{ route('') }}" class="nav-link text-dark">Formulir Masuk</a></li> --}}
-                            {{-- <li><a href="{{ route('') }}" class="nav-link text-dark">Formulir Disetujui</a></li> --}}
+                            <li><a href="{{ route('masuk') }}" class="nav-link text-dark">Formulir Masuk</a></li>
+                            <li><a href="{{ route('formulir.disetujui') }}" class="nav-link text-dark">Formulir Disetujui</a></li>
                         </ul>
                     </div>
                 </li>

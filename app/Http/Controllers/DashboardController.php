@@ -22,6 +22,9 @@ class DashboardController extends Controller
         $formulirMasukCount = FormulirUji::where('status', 'Masuk')->count();
         $formulirDisetujuiCount = FormulirUji::where('status', 'Disetujui')->count();
 
+        // Get the logged-in user's name
+        $userName = Auth::user()->name;
+
         // Check user role and redirect accordingly
         if (Auth::check()) {
             if (Auth::user()->role == 'admin') {

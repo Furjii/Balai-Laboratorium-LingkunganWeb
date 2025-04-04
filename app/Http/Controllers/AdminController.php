@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -42,5 +44,16 @@ class AdminController extends Controller
 
         // Redirect back with a success message
         return redirect()->route('user-management')->with('success', 'User added successfully!');
+    }
+    public function destroy($id)
+    {
+        // Find the user to delete
+        $user = User::findOrFail($id);
+
+        // Delete the user
+        $user->delete();
+
+        // Redirect with success message
+        return redirect()->route('admin.users')->with('success', 'User deleted successfully!');
     }
 }

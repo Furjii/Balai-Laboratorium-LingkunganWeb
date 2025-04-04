@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-body">
     <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
         <div class="overflow-hidden rounded shadow-lg row vw-100 vh-100">
@@ -27,6 +13,22 @@
             <div class="p-4 bg-white right-panel col-md-6 d-flex flex-column align-items-center justify-content-center">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="mb-3 logo-mobile d-md-none">
                 <h4 class="mb-4 fw-bold">Sign in</h4>
+
+                <!-- Show success or error messages -->
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <form class="w-50 position-relative" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="mb-3 position-relative">
@@ -45,4 +47,3 @@
         </div>
     </div>
 </body>
-</html>
