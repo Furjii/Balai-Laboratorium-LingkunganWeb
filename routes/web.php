@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BakuMutuController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormulirUjiController;
+use App\Http\Controllers\FormulirMasukController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', function () {
@@ -125,6 +126,34 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/tambah-user', [AdminController::class, 'store'])->name('admin.addUser');
 });
 
+// Routes for updating form data
+Route::get('/formulir-uji/edit/{id}', [FormulirUjiController::class, 'edit'])->name('formulir.edit');
+Route::put('/formulir/{id}/update', [FormulirUjiController::class, 'update'])->name('formulir.update');
+
+
+
+
+Route::get('/formulir/masuk', [FormulirUjiController::class, 'viewFormulirMasuk'])->name('masuk');
+Route::get('/formulir/edit/{id}', [FormulirUjiController::class, 'edit'])->name('formulir.edit');
+Route::put('/formulir/update/{id}', [FormulirUjiController::class, 'update'])->name('formulir.update');
+Route::delete('/formulir/{id}', [FormulirUjiController::class, 'destroy'])->name('formulir.delete');
+
+// Route for displaying Formulir Masuk
+Route::get('/formulir-masuk', [FormulirMasukController::class, 'index'])->name('formulir.masuk');
+
+// Route for Setujui action
+Route::put('/formulir/{id}/setujui', [FormulirMasukController::class, 'setujui'])->name('formulir.setujui');
+
+// Route to show approved (Disetujui) formulir
+Route::get('/formulir-disetujui', [FormulirMasukController::class, 'showDisetujui'])->name('formulir.disetujui');
+
+// Route to display the approved forms
+Route::get('/formulir/disetujui', [FormulirUjiController::class, 'disetujui'])->name('formulir.disetujui');
+
+
+Route::get('/formulir/{id}/export-pdf', [FormulirMasukController::class, 'exportPDF'])->name('formulir.exportPDF');
+
+Route::post('/formulir/{id}/upload-payment-proof', [FormulirMasukController::class, 'uploadPaymentProof'])->name('formulir.uploadPaymentProof');
 
 
 

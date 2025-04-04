@@ -30,7 +30,13 @@ class CreateFormulirUjiTable extends Migration
             $table->date('tanggal_pengambilan_sample');
             $table->json('parameters'); // Store parameters as JSON
             $table->decimal('total_harga', 10, 2); // Total price
+            $table->softDeletes();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null'); // Track who deleted
             $table->timestamps();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('approved_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->string('payment_proof')->nullable(); // To store the image file path
+
         });
     }
 

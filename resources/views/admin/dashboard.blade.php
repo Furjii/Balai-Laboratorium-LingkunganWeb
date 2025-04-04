@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Jumlah Formulir Masuk</h5>
                     <p class="card-text">{{ $formulirMasukCount }} Formulir Masuk</p>
-                    <a href="{{ route('formulir.create') }}" class="btn btn-light">Input Formulir</a>
+                    <a href="{{ route('masuk') }}" class="btn btn-light">Lihat Formulir</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Jumlah Formulir Disetujui</h5>
                     <p class="card-text">{{ $formulirDisetujuiCount }} Formulir Disetujui</p>
-                    <a href="{{ route('formulir.history') }}" class="btn btn-light">Lihat Histori</a>
+                    <a href="{{ route('formulir.disetujui') }}" class="btn btn-light">Lihat Formulir</a>
                 </div>
             </div>
         </div>
