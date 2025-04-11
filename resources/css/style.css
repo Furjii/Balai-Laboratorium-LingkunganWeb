@@ -10,7 +10,7 @@
 }
 
 .logo-mobile {
-    width: 120px;
+    width: 100px;
     height: auto;
 }
 
@@ -112,5 +112,17 @@
     .card .btn {
         font-size: 0.9rem;
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        z-index: 1050;
+        background-color: #f8f9fa;
     }
 }

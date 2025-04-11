@@ -11,9 +11,13 @@ use App\Http\Controllers\FormulirUjiController;
 use App\Http\Controllers\FormulirMasukController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard'); // This will redirect to the login page
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -52,7 +56,8 @@ Route::middleware(['auth',])->group(function () {
     Route::get('/pengguna/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
 });
 
-Route::get('/gallery/index', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/gallery/index', [GalleryController::class, 'index'])->name('gallery.index');
+
 
 
 // Rute untuk login
@@ -97,9 +102,14 @@ Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->
 Route::get('/referensi', function () {
     return view('admin.referensi');
 })->name('referensi');
+
 Route::get('/tambah-user', function () {
     return view('admin.tambah-user');
 })->name('tambah-user');
+
+Route::get('/gallery', function () {
+    return view('admin.gallery');
+})->name('gallery');
 
 
 Route::middleware(['auth'])->group(function () {

@@ -2,13 +2,14 @@
 @section('title', 'Admin Dashboard')
 
 @section('content')
+
 <div class="container">
     <h2 class="my-4">Dashboard</h2>
 
     <!-- Dashboard Cards -->
     <div class="row">
         <!-- Card for Formulir Masuk -->
-        <div class="mb-4 col-md-6 col-xl-4">
+        <div class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
             <div class="text-white card bg-danger">
                 <div class="card-body">
                     <h5 class="card-title">Jumlah Formulir Masuk</h5>
@@ -19,7 +20,7 @@
         </div>
 
         <!-- Card for Formulir Disetujui -->
-        <div class="mb-4 col-md-6 col-xl-4">
+        <div class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
             <div class="text-white card bg-info">
                 <div class="card-body">
                     <h5 class="card-title">Jumlah Formulir Disetujui</h5>
@@ -30,4 +31,5 @@
         </div>
     </div>
 </div>
+
 @endsection
