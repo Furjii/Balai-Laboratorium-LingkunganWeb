@@ -14,6 +14,7 @@ class AddUpdatedByToFormulirUjiTable extends Migration
     public function up()
     {
         Schema::table('formulir_uji', function (Blueprint $table) {
+            // Adding the foreign key column to track the user who made the update
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
         });
     }
@@ -26,7 +27,8 @@ class AddUpdatedByToFormulirUjiTable extends Migration
     public function down()
     {
         Schema::table('formulir_uji', function (Blueprint $table) {
-            $table->dropColumn('updated_by');
+            // Drop the foreign key and the column when rolling back the migration
+            $table->dropConstrainedForeignId('updated_by');
         });
     }
 }

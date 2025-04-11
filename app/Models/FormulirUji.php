@@ -43,6 +43,11 @@ class FormulirUji extends Model
         'parameters' => 'array', // Cast parameters to an array
         'total_harga' => 'decimal:2', // Cast total_harga to decimal with 2 decimal places
     ];
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
     public function DeletedBy()
     {
         return $this->belongsTo(User::class, 'deleted_by');

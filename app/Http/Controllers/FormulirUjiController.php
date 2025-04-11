@@ -76,7 +76,7 @@ class FormulirUjiController extends Controller
             'email' => 'required|email',
             'no_telepon' => 'required',
             'jenis_contoh_uji' => 'required',
-            'parameters' => 'required', // Ensure parameters are passed
+            'parameters' => 'required|array', // Ensure parameters are passed as an array
             'jumlah_sample' => 'required|integer',  // Ensure the jumlah_sample is passed
         ]);
 
@@ -102,7 +102,7 @@ class FormulirUjiController extends Controller
                 'parameters' => $validated['parameters'], // Updated parameters
                 'total_harga' => $total_harga,  // Update total_harga
                 'jumlah_sample' => $validated['jumlah_sample'],  // Update jumlah_sample
-                'updated_by' => Auth::user()->name,  // Track the user who made the edit
+                'updated_by' => Auth::user()->name,  // Store the name of the authenticated user
             ]);
 
             // Redirect back to the history page with a success message
@@ -112,6 +112,9 @@ class FormulirUjiController extends Controller
             return redirect()->route('formulir.history')->with('error', 'Failed to update Formulir Uji! Error: ' . $e->getMessage());
         }
     }
+
+
+
 
 
     // Show the history of all the "Formulir Uji"
@@ -145,6 +148,7 @@ class FormulirUjiController extends Controller
         // Return the 'edit' view with the formulir and parameters data
         return view('formulir.edit', compact('formulir', 'parameters'));
     }
+
 
     // FormulirUjiController.php
 

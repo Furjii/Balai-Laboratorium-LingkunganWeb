@@ -50,7 +50,6 @@
                         @endif
                     </td>
 
-
                     <!-- Actions (Upload, Edit, Export) -->
                     <td>
                         <!-- Upload Payment Proof Form for each record -->
@@ -73,7 +72,6 @@
             @endforeach
         </tbody>
     </table>
-
 @endsection
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
